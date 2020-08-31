@@ -4,7 +4,7 @@ A cloudformation custom resource to allow adding lambda notifications to an S3 b
 Creating a Lambda which subscribes to S3 bucket notifications (create object event) directly
 is a pretty common scenario. It sounds trivial to setup however it actually is NOT.  The problem
 is that the bucket and the lambda resource contains a circular dependency which makes it
-difficult to deploy. 
+difficult to deploy.
 
 The [official CloudFormation Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html)
 states that there is a known circular dependency issue with this use case and the workaround
