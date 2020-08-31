@@ -1,6 +1,5 @@
 import json
 import boto3
-import uuid
 from crhelper import CfnResource
 from os import environ
 
@@ -35,15 +34,15 @@ def add_notification(notification_bucket, lambda_function_arn, labda_notificatio
             ]
         }
     )
-    # id = 'bn-{}'.format(str(uuid.uuid4()).replace('-', '')[0:13])
-    logger.info("added bucket notification to " + BUCKET_NAME)
-    return BUCKET_NAME
+    logger.info("added bucket notification to " + notification_bucket)
+    return notification_bucket
 
 def delete_notification(bucket):
     bucket_notification = s3.BucketNotification(bucket)
     response = bucket_notification.put(
         NotificationConfiguration={}
     )
+    logger.info("removed bucket notification from " + bucket)
 
 
 @helper.create
@@ -57,7 +56,7 @@ def create(event, context):
 def delete(event, context):
     logger.debug("Received event: " + json.dumps(event, sort_keys=False))
     notification_bucket = event['ResourceProperties']['NotificationBucket']
-    logger.info("remove bucket notification from " + bucket)
+    logger.info("remove bucket notification from " + notification_bucket)
     return delete_notification(notification_bucket)
 
 
