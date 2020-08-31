@@ -21,7 +21,6 @@ jobs:
       script:
         - pre-commit run --all-files
         - sam build
-        - python -m pytest tests/ -v
     - stage: deploy
       script:
         - sam build
