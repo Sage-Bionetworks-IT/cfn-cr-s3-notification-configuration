@@ -13,6 +13,7 @@ pre-commit = "*"
 aws-sam-cli = "*"
 boto3 = "*"
 botocore = "*"
+crhelper = "*"
 
 [requires]
 python_version = "3.6"
