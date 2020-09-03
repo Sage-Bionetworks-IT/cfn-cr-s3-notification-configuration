@@ -91,7 +91,7 @@ stack_tags:
   OwnerEmail: "it@sagebase.org"
 hooks:
   before_launch:
-    - !cmd "curl https://s3.amazonaws.com/bootstrap-awss3cloudformationbucket-19qromfd235z9/cfn-cr-s3-notification-configuration/master/cfn-cr-s3-notification-configuration.yaml --create-dirs -o templates/remote/cfn-cr-s3-notification-configuration.yaml"
+    - !cmd "curl https://bootstrap-awss3cloudformationbucket-19qromfd235z9.s3.amazonaws.com/cfn-cr-s3-notification-configuration/master/cfn-cr-s3-notification-configuration.yaml --create-dirs -o templates/remote/cfn-cr-s3-notification-configuration.yaml"
 ```
 
 Install the lambda using sceptre:
