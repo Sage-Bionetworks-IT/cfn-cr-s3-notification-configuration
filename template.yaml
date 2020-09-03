@@ -56,7 +56,7 @@ Resources:
       Handler: app.lambda_handler
       Role: !GetAtt LambdaConfigurationRole.Arn
       CodeUri: lambda_configuration/
-      Runtime: python3.6
+      Runtime: python3.7
       Timeout: 50
       Environment:
         Variables:
